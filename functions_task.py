@@ -43,7 +43,7 @@ def calculate_age(year, month, day):
 				month = 11
 				day = 30 - (day - today.day)
 		
-		elif month == today.month and day < today.day:
+		elif month == today.month and day <= today.day:
 			day = today.day - day
 			month = today.month - month
 
@@ -51,15 +51,14 @@ def calculate_age(year, month, day):
 			month = today.month - month - 1
 			day = 30 - (day - today.day)
 		
-		elif month < today.month and day < today.day:
+		elif month < today.month and day <= today.day:
 			month = today.month - month 
 			day = today.day - day
 
-		elif month == today.month and day == today.day:
-			month = 0
-			day = 0
-			print('\nHappy Birthday!')
 	if check_birthdate(year, month, day) == True:
 		print_statment(year, month, day)
+
+		if month == 0 and day == 0:
+			print('Happy Birthday!\n')
 
 calculate_age(year, month, day)
